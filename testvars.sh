@@ -3,13 +3,16 @@
 #VARS=(THIS THAT SOMETHINGELSE)
 testvars () {
  result=0
- for var in ${VARS[@]}
+ if [ "$VARS" == "" ]
+ then
+   result=-2
+ fi
+ for var in ${VARS[@]} #why does this modify VARS?
  do
   if [  "$(eval echo \$"$var")" == "" ]
   then
     result=-1
   fi
  done
- echo result
- exit result
+ echo $result
 }
