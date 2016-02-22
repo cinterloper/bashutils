@@ -10,4 +10,6 @@ testvars () {
     result=-1
   fi
  done
+ echo result
+ exit result
 }
